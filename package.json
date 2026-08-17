@@ -1,8 +1,11 @@
 {
-  "name": "pm2-postgres",
+  "name": "@vladonv/pm2-postgres",
   "version": "0.1.1",
-  "description": "PM2 PostgreSQL Module",
+  "description": "PM2 PostgreSQL Module (fork of pm2-hive/pm2-postgres, updated for PostgreSQL 10-18 / SCRAM auth support)",
   "main": "app.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "humanize": "0.0.9",
     "pg": "^8.23.0",
@@ -10,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pm2-hive/pm2-postgres.git"
+    "url": "git+https://github.com/vladonv/pm2-postgres.git"
   },
   "config": {
     "hostname": "localhost",
@@ -26,7 +29,7 @@
       "script": "app.js"
     }
   ],
-  "author": "Keymetrics Inc.",
+  "author": "Keymetrics Inc. (original), vladonv (fork maintainer)",
   "license": "MIT",
   "devDependencies": {}
 }
