@@ -1,11 +1,29 @@
+var fs = require('fs');
+var path = require('path');
 var pmx = require('pmx');
 var pgClientFactory = require('./lib/clientFactory.js');
 var pgStats = require('./lib/stats.js');
 var pgActions = require('./lib/actions.js');
 
+// Debian/Ubuntu's postgresql-common names pidfiles "<version>-main.pid"
+// (e.g. "17-main.pid", "9.6-main.pid"). Scanning the directory instead of
+// hardcoding a version list keeps this working for future major versions.
+function detectPostgresPidPaths() {
+  var pgRunDir = '/var/run/postgresql';
+
+  try {
+    return fs.readdirSync(pgRunDir)
+      .filter(function (name) { return /^\d+(\.\d+)?-main\.pid$/.test(name); })
+      .sort(function (a, b) { return parseFloat(b) - parseFloat(a); })
+      .map(function (name) { return path.join(pgRunDir, name); });
+  } catch (e) {
+    return [];
+  }
+}
+
 pmx.initModule({
 
-  pid: pmx.resolvePidPaths(['/var/run/postgresql/9.4-main.pid', '/var/run/postgresql/9.3-main.pid', '/var/run/postgresql/9.5-main.pid']),
+  pid: pmx.resolvePidPaths(detectPostgresPidPaths()),
 
   // Options related to the display style on Keymetrics
   widget: {

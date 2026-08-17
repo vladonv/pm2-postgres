@@ -16,7 +16,7 @@ PM2 module to monitor key PostgreSQL server metrics:
 
 ## Requirements
 
-This module requires a PostgreSQL install (tested against v9.4).
+This module requires a PostgreSQL install (v9.3+, including SCRAM-SHA-256 auth on PostgreSQL 10-17).
 
 ## Install
 

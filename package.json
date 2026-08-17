@@ -1,12 +1,11 @@
 {
   "name": "pm2-postgres",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PM2 PostgreSQL Module",
   "main": "app.js",
   "dependencies": {
     "humanize": "0.0.9",
-    "lodash": "^3.10.1",
-    "pg": "^4.4.2",
+    "pg": "^8.23.0",
     "pmx": ">=0.5.5"
   },
   "repository": {
