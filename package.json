@@ -1,6 +1,6 @@
 {
   "name": "@vladonv/pm2-postgres",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "PM2 PostgreSQL Module (fork of pm2-hive/pm2-postgres, updated for PostgreSQL 10-18 / SCRAM auth support)",
   "main": "app.js",
   "publishConfig": {
